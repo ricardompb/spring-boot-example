@@ -2,9 +2,20 @@ spring:
   application:
     name: econet
   datasource:
-    url: jdbc:postgresql://localhost:5432/econet
-    username: postgres
+    #url: jdbc:postgresql://localhost:5432/econet
+    url: jdbc:h2:mem:econet
+    driverClassName: org.h2.Driver
+    username: sa
     password: 123456
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
