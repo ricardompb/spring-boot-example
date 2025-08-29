@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "users")
 @EqualsAndHashCode(of = "id")
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
