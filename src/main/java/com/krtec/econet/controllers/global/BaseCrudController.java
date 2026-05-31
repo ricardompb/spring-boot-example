@@ -28,11 +28,11 @@ public abstract class BaseCrudController<T, ID> {
 
     @PostMapping
     @Operation(
-            summary = "Cria um novo registro da entidade",
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Dados da nova entidade",
-                    required = true
-            )
+        summary = "Cria um novo registro da entidade",
+        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+            description = "Dados da nova entidade",
+            required = true
+        )
     )
     public ResponseEntity<T> create(@RequestBody T input) {
         return ResponseEntity.ok(this.getRepository().save(input));
@@ -40,12 +40,12 @@ public abstract class BaseCrudController<T, ID> {
 
     @PutMapping("/{id}")
     @Operation(
-            summary = "Atualiza os dados de uma entidade existente",
-            parameters = {@Parameter(name = "id", description = "Chave da entidade")},
-            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "Dados da nova entidade",
-                    required = true
-            )
+        summary = "Atualiza os dados de uma entidade existente",
+        parameters = {@Parameter(name = "id", description = "Chave da entidade")},
+        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+            description = "Dados da nova entidade",
+            required = true
+        )
     )
     public ResponseEntity<T> update(@PathVariable ID id, @RequestBody T input) {
         if (!this.getRepository().existsById(id)) {
